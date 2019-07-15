@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Tizar Forms</title>
+        <link rel="icon" href="TizarFavicon.ico">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/tether.min.css"/>
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="css/form_builder.css"/>
+        <link rel="stylesheet" href="css/form_color.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-light  bg-faded fixed-top" style=" background-color: rgb(23, 152, 212);">
+                <div class="clearfix">
+                    <div class="container">
+                        <button style="cursor: pointer;display: none;" class="btn btn-info export_html mt-2 pull-right">Export HTML</button>
+
+                        <button type="button" class="btn btn-info btn-md" onclick="printDiv('tizarForm')" style="position: absolute; left: 805px; top: 8px;">Print</button>
+
+
+                         <button type="button" class="btn btn-info btn-md" id="cmd" style="position: absolute; left: 882px; top: 8px;">Download</button> 
+
+                        <!-- <h3 class="mr-auto">Tizar</h3> -->
+                        <img src="TizarLogo.png" style="width: 100px; height: 50px; border-radius: 50px;">
+                    </div>
+                </div>
+            </nav>
+            <br/>
+            <div class="clearfix"></div>
+            <div class="form_builder" style="margin-top: 25px">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <nav class="nav-sidebar" style="border-color: rgb(23, 152, 212); border-width: 5px;">
+                            <ul class="nav">
+                                <li class="form_bal_textfield">
+                                    <a href="javascript:;">Text Field <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_textarea">
+                                    <a href="javascript:;">Text Area <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_select">
+                                    <a href="javascript:;">Select <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_radio">
+                                    <a href="javascript:;">Radio Button <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_checkbox">
+                                    <a href="javascript:;">Checkbox <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_email">
+                                    <a href="javascript:;">Email <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_number">
+                                    <a href="javascript:;">Number <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_password">
+                                    <a href="javascript:;">Password <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_date">
+                                    <a href="javascript:;">Date <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                                <li class="form_bal_button">
+                                    <a href="javascript:;">Button <i class="fa fa-plus-circle pull-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="col-md-5 bal_builder">
+                        <div class="form_builder_area"></div>
+                    </div>
+                    <div class="col-md-5" id="tizarForm" style=" background-color: rgb(238, 238, 238); left: 35px; top: 20px;">
+                        <div style="width: 475px; height: 50px;  margin-left: -15px; background-color: rgb(23, 152, 212)" id="tizarHeader">
+                            <img src="TizarLogo.png" style="width: 40px; height: 40px; border-radius: 100px; position: absolute; top: 5px; left: 5px;">
+                        </div>
+                        <div class="col-md-12">
+                            <br>
+                            <form class="form-horizontal">
+                                <div class="preview"></div>
+                                <div style="display: none" class="form-group plain_html"><textarea rows="50" class="form-control"></textarea></div>
+                            </form>
+                        </div>
+                        <div style="width: 475px; height: 80px;  margin-left: -15px; position: sticky; top: 500px;  background-color: rgb(23, 152, 212)" id="tizarFooter">
+                           
+                           <p style="color: white; text-align: center;"><br><b>Tizar</b>© - 2019 All Rights Recieved.<br>Khizar Hayat || Tamkeen Ahmed</p>
+
+                        </div>
+                    </div>
+                    <div id="editor"></div>
+                    <div style="background-color: rgb(51, 51, 51); width: 180px; height: 40px; margin-left: -60px; border-radius: 5px;">
+                        <button style="border-style: none; width: 30px; height: 30px; position: absolute; left: -55px; bottom: 5px; background-color: rgb(103, 162, 37); border-radius: 5px;" id="greenForm"></button>
+                        <button style="border-style: none; width: 30px; height: 30px; position: absolute; left: -20px; bottom: 5px; background-color: rgb(249, 185, 50); border-radius: 5px;" id="yellowForm"></button>
+                        <button style="border-style: none; width: 30px; height: 30px; position: absolute; left: 15px; bottom: 5px; background-color: rgb(23, 152, 212); border-radius: 5px;" id="blueForm"></button>
+                        <button style="border-style: none; width: 30px; height: 30px; position: absolute; left: 50px; bottom: 5px; background-color: rgb(35, 32, 33); border-radius: 5px;" id="blackForm"></button>
+                        <button style="border-style: none; width: 30px; height: 30px; position: absolute; left: 85px; bottom: 5px; background-color: rgb(213, 0, 37); border-radius: 5px;" id="redForm"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/tether.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/form_builder.js"></script>
+        <script src="js/form_print.js"></script>
+        <script src="js/form_download.js"></script>
+        <script src="js/form_color.js"></script>
+
+        
+    </body>
+</html>
